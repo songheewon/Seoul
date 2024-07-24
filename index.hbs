@@ -1,0 +1,19 @@
+{{!< default}}
+
+{{#contentFor 'title'}}{{ meta_title }}{{/contentFor}}
+
+<div class='o-wrapper'>
+  {{> banner }}
+
+  <div class='o-grid js-grid'>
+    {{> loop }}
+  </div>
+
+  <div class='o-grid'>
+    {{ pagination }}
+  </div>
+
+  {{!-- {{> index-authors }} --}}
+
+  {{> shop }}
+</div>

@@ -1,0 +1,133 @@
+{{!< default}} {{#contentFor 'title' }}{{ meta_title }}{{/contentFor}} {{#post}} {{#if feature_image}} <div
+    class="c-post-image-header-template">
+    <div class="c-post-image-header-template__wrap">
+        <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+            class='c-post-image-header-template__img lazyload' style="width: 100%; height: 100%; object-fit: cover;"
+            data-srcset='
+                {{ img_url feature_image size=' ml' }} 320w, {{ img_url feature_image size='lg' }} 636w, {{ img_url
+            feature_image size='xl' }} 1272w, {{ img_url feature_image size='xxl' }} 2640w'
+            data-src='{{ img_url feature_image size=' xxl' }}' />
+    </div>
+    <div class="c-post-header__title c-post-image-header-template__title_and_excerpt">
+        <div class="c-post-image-header-template__fixed_div">
+        <div class="c-post-image-header-template__title">{{title}}</div>
+        <div class="c-post-image-header-template__excerpt">{{excerpt}}</div>
+        </div>
+    </div>
+    </div>
+    {{/if}}<main class='o-wrapper'>
+        <article>
+            <header>
+                <div class='o-grid'>
+                    <div class='o-grid__col o-grid__col--center o-grid__col--4-4-s'>
+                        <div class='c-post-header'>
+                            
+                            {{#is 'post'}}
+                            <div class='c-post-header__meta'>
+                                {{#primary_author}}
+                                <a href='{{ url }}' class='c-post-header__author'>
+                                    {{#if profile_image}}
+                                    <div class='c-post-header__author--image-wrap'>
+                                        <img class='c-post-header__author--image lazyload'
+                                            data-src='{{ img_url profile_image size=' xxs' }}' alt='{{ name }}'
+                                            width='24' height='24'>
+                                    </div>
+                                    {{/if}}
+                                    {{ name }}
+                                </a>
+                                {{/primary_author}}
+                                <time class='c-post-header__date' datetime='{{ date format=' YYYY-MM-DD' }}'
+                                    title='{{ date format=(t ' DD MMM YYYY') }}'>{{ date format=(t 'DD MMM YYYY')
+                                    }}</time>
+
+                                {{#if (not @site.comment_read_permission "none")}}
+                                {{#if comment_count}}
+                                <span class='c-post-header__comment comment-count-{{comment_count}}'><a
+                                        class="byline-comments" href="{{url}}comments" data-portal="comment"
+                                        data-post-uuid="{{uuid}}">댓글 {{comment_count}}개 보기</a></span>
+                                {{else}}
+                                <span class='c-post-header__comment comment-count-0'><a class="byline-comments"
+                                        href="{{url}}comments" data-portal="comment" data-post-uuid="{{uuid}}">댓글
+                                        남기기</a></span>
+                                {{/if}}
+                                {{/if}}
+
+                            </div>
+                            {{/is}}
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class='o-grid'>
+                <div class='o-grid__col o-grid__col--center o-grid__col--4-4-s'>
+                    <div class='c-{{ post_class }}'>
+                        {{!-- Show the tags, share, subscribe box, and comments if visitor can access the post, this
+                        means
+                        that:
+                        1. The post is public for anyone
+                        2. The post is published for subscribers and the visitor is a subscriber
+                        3. The post is for paid members only and the visitor is a paid member --}}
+                        {{#if access}}
+                        <div class='c-content'>
+                            {{ content }}
+                        </div>
+
+                        {{bluedot_comment_button}}
+
+                        {{#if tags}}
+                        <div class='c-tags'>
+                            {{ tags separator='' }}
+                        </div>
+                        {{/if}}
+
+                        {{> share }}
+
+                        {{!-- If the post is published for members and paid members and the visitor is not one of those,
+                        show the upgrade box --}}
+                        {{#unless @member}}
+                        {{#if access}}
+                        <div class='c-subscribe'>
+                            <div class='o-grid'>
+                                <div
+                                    class='o-grid__col o-grid__col o-grid__col--3-4-m o-grid__col--3-4-l o-grid__col--center'>
+                                    <div data-icon='ei-envelope' data-size='m' class='c-subscribe__icon'></div>
+                                    <h3 class='u-type-sm u-type-500 u-color-gray u-mb-32'>{{t 'Become a subscriber to
+                                        access
+                                        all of our content.' }}</h3>
+                                    {{> subscribe-form inputLabel='subscribe-email-post'}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{/unless}}
+                        {{!-- If the post is published for members and paid members and the visitor is not one of those,
+                        show the upgrade box --}}
+                        {{else}}
+                        <!-- from bluedot -->
+                        {{bluedot_paywall}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    {{bluedot_paywall_popup}}
+
+    {{/post}}
+    {{#if @site.visible_related_post}}
+    <div class="o-grid">
+        {{> related-posts}}
+    </div>
+    {{/if}}
+    {{!-- {{> shop }} --}}
+
+    {{#if @site.post_visible_shop_section}}
+    <div class="c-home-products-carousel">
+        <div class="o-grid">
+            <div class="o-grid__col o-grid__col--full">
+                {{> common/products/carousel-section which="home" nav="true" }}
+            </div>
+        </div>
+    </div>
+    {{/if}}
