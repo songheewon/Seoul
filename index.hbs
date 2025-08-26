@@ -10,10 +10,20 @@
   </div>
 
   <div class='o-grid'>
-    {{ pagination }}
+    {{> pagination }}
   </div>
 
   {{!-- {{> index-authors }} --}}
 
-  {{> shop }}
+  {{!-- {{> shop-slide}} --}}
+
+{{#if @site.home_visible_shop_section}}
+  <div class="c-home-products-carousel">
+    <div class="o-grid">
+      <div class="o-grid__col o-grid__col--full">
+        {{> common/products/carousel-section which="home" nav="true" }}
+      </div>
+    </div>
+  </div>
+  {{/if}}
 </div>
