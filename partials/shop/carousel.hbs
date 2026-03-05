@@ -1,14 +1,15 @@
 {{#get "products" limit=@custom.shop_posts_per_page order="published_at desc"}}
 {{#if products}}
-<div class="c-shop-carousel relative">
+<div class="c-shop-carousel relative pb-10 lg:pb-0">
   <div class="c-shop-carousel__swiper overflow-hidden">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
     {{#foreach products}}
-      <div class="swiper-slide">
+      <div class="swiper-slide h-auto">
       {{> product-card }}
       </div>
     {{/foreach}}
+    </div>
   </div>
 
   <!-- If we need pagination -->

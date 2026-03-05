@@ -1,15 +1,16 @@
 .s-products-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px 12px;
 
   @include mq($from: landscape) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px 40px;
+    gap: 32px 20px;
   }
 
   @include mq($from: desktop) {
-    // grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 20px;
   }
 
   &__empty {

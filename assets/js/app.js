@@ -184,7 +184,8 @@ const shopSwiper = new Swiper('.c-shop-carousel__swiper', {
   // If we need pagination
   pagination: {
     el: '.c-shop-carousel .swiper-pagination',
-    enabled: true
+    enabled: true,
+    clickable: true
   },
 
   // Navigation arrows
@@ -194,52 +195,36 @@ const shopSwiper = new Swiper('.c-shop-carousel__swiper', {
     enabled: false
   },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.c-shop-carousel .swiper-scrollbar',
-  },
-
   slidesPerView: 2,
-  spaceBetween: 20,
-  grid: {
-    rows: 2
-  },
+  spaceBetween: 12,
 
   // Responsive breakpoints
   breakpoints: {
-    // when window width is >= 320px
     480: {
       slidesPerView: 2,
-      spaceBetween: 20,
-      grid: {
-        rows: 2
-      },
+      spaceBetween: 12,
       navigation: {
         enabled: false
       },
       pagination: {
-        enabled: true
+        enabled: true,
+        clickable: true
       }
     },
     768: {
       slidesPerView: 2,
-      spaceBetween: 40,
-      grid: {
-        rows: 2
-      },
+      spaceBetween: 16,
       navigation: {
         enabled: false
       },
       pagination: {
-        enabled: true
+        enabled: true,
+        clickable: true
       }
     },
     1024: {
       slidesPerView: 4,
       spaceBetween: 26,
-      grid: {
-        rows: 1
-      },
       navigation: {
         enabled: false
       },
@@ -250,9 +235,6 @@ const shopSwiper = new Swiper('.c-shop-carousel__swiper', {
     1240: {
       slidesPerView: 4,
       spaceBetween: 26,
-      grid: {
-        rows: 1
-      },
       navigation: {
         enabled: true
       },
@@ -282,11 +264,16 @@ history.scrollRestoration = "manual"
 const productsCarousel = document.querySelectorAll('.s-products-carousel__container');
 productsCarousel.forEach(el => {
   const swiper = new Swiper(el.querySelector('.swiper'), {
-    spaceBetween: 20,
+    spaceBetween: 12,
     slidesPerView: 2,
     breakpoints: {
+      480: {
+        spaceBetween: 12,
+        slidesPerView: 2,
+      },
       640: {
-        spaceBetween: 40
+        spaceBetween: 16,
+        slidesPerView: 2,
       },
       1024: {
         spaceBetween: 20,

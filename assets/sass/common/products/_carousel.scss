@@ -33,16 +33,18 @@
       }
 
       &-bullet {
-        border-radius: 100%;
-        width: 6px;
-        height: 6px;
-        background-color: #c9c9c9;
+        border-radius: 4px;
+        width: 8px;
+        height: 8px;
+        background-color: #d1d5db;
         opacity: 1;
         display: block;
         cursor: pointer;
+        transition: all 0.2s ease;
 
         &-active {
-          background-color: #717171;
+          background-color: #045CF3;
+          width: 20px;
         }
       }
 

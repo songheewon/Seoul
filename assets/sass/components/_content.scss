@@ -17,7 +17,9 @@
   }
 
   a {
-    color: var(--color-brand);
+    // color: var(--color-brand);
+    // color: var(--bluedot-accent-color);
+    color: #04a6d7;
     text-decoration: underline;
 
     strong {
@@ -26,19 +28,28 @@
     }
   }
 
+  p {
+    line-height: 30px;
+  }
+
+  ol, ul {
+    list-style: disc;
+    margin-left: 1rem;
+  }
+
   p, pre,
   dl, ol, ul,
   form,
   fieldset {
-    font-size: $type-xl;
-    font-family: $type-serif;
-    line-height: $type-xl-lh;
+    // font-size: $type-xl;
+    // font-family: $type-serif;
+    // line-height: $type-xl-lh;
   }
 
   table {
-    font-size: $type-md;
-    line-height: $type-md-lh;
-    font-family: $type-sans-serif;
+    // font-size: $type-md;
+    // line-height: $type-md-lh;
+    // font-family: $type-sans-serif;
   }
 
   hr {
@@ -68,8 +79,6 @@
   }
 
   h1 {
-    font-size: $type--h-md;
-    line-height: $type--h-md-lh;
 
     + h2, + h3, + h4, + h5, + h6 {
       margin-top: $space-16;
@@ -77,8 +86,6 @@
   }
 
   h2 {
-    font-size: $type--h-sm;
-    line-height: $type--h-sm-lh;
 
     + h3, + h4, + h5, + h6 {
       margin-top: $space-16;
@@ -86,8 +93,6 @@
   }
 
   h3 {
-    font-size: $type--h-xs;
-    line-height: $type--h-xs-lh;
 
     + h4, + h5, + h6 {
       margin-top: $space-16;
@@ -95,8 +100,6 @@
   }
 
   h4 {
-    font-size: $type--h-xxs;
-    line-height: $type--h-xxs-lh;
 
     + h5, + h6 {
       margin-top: $space-8;
@@ -104,8 +107,6 @@
   }
 
   h5 {
-    font-size: $type--h-xxxs;
-    line-height: $type--h-xxxs-lh;
 
     + h6 {
       margin-top: $space-8;

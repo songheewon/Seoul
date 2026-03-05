@@ -5,11 +5,11 @@
       <li class="s-products-navigation__item s-products-navigation__item--all">
         <a href="{{@site.url}}/shop/" class="s-products-navigation__link{{#match which "home"}} s-products-navigation__link--current{{/match}} {{link_class for=(concat @site.url "/shop/") activeClass="s-products-navigation__link--current"}}">{{t '전체보기'}}</a>
       </li>
-      {{#match @custom.shop_navigation_format "=" "category"}}
+      {{#match @site.shop_category_option "=" "category"}}
       {{#foreach product_categories}}
       <li class="s-products-navigation__item s-products-navigation__item--{{slug}}">{{#link href=(url) class="s-products-navigation__link" activeClass="s-products-navigation__link--current"}}{{label}}{{/link}}</li>
       {{/foreach}}
-      {{else match @custom.shop_navigation_format "=" "type"}}
+      {{else match @site.shop_category_option "=" "type"}}
       <li class="s-products-navigation__item s-products-navigation__item--online">{{#link href=(concat @site.url "/shop/online-class/") class="s-products-navigation__link" activeClass="s-products-navigation__link--current"}}온라인 강좌{{/link}}</li>
       <li class="s-products-navigation__item s-products-navigation__item--webinar">{{#link href=(concat @site.url "/shop/webinar/") class="s-products-navigation__link" activeClass="s-products-navigation__link--current"}}이벤트{{/link}}</li>
       <li class="s-products-navigation__item s-products-navigation__item--digital">{{#link href=(concat @site.url "/shop/digital-book/") class="s-products-navigation__link" activeClass="s-products-navigation__link--current"}}디지털 북{{/link}}</li>
